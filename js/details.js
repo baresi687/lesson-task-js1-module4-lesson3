@@ -5,7 +5,7 @@ const queryString = document.location.search;
 console.log(queryString)
 const params = new URLSearchParams(queryString);
 console.log(params);
-const id = params.get("char_id");
+const id = params.get("id");
 console.log(id)
 
 idContainer.innerHTML = id;
@@ -19,7 +19,8 @@ async function getSingleBR() {
     const response = await fetch(url);
     const result = await response.json();
     console.log(result)
-    detailsContainer.innerHTML = `<h1>${result[0].name}</h1>
+    detailsContainer.innerHTML = `<div class="img" style="background-image: url('${result[0].img}')"></div>
+                                  <h1>${result[0].name}</h1>
                                   <p>Occupation: <b>${result[0].occupation}</b></p>`
   } catch (error) {
 
